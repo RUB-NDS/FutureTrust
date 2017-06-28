@@ -13,7 +13,7 @@ Our first contribution is the documentation of existing governmental and commerc
 
 Information about the existing eID services were collected from whitepapers and scientific publications as well as with custom tools. Countries from the European Union, European Economic Area (Norway, Iceland, Liechtenstein), and other countries applying eID protocols were considered in our analysis.
 
-**See the [FutureTrust Wiki](https://github.com/RUB-NDS/FutureTrust/wiki) for the online documentation.**
+**See the [FutureTrust Wiki](https://github.com/RUB-NDS/FutureTrust/wiki/Overview-of-eID-Services) for the online documentation.**
 
 # FutureTrust Partners
 
