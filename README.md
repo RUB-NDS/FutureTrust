@@ -17,18 +17,18 @@ Information about the existing eID services were collected from whitepapers and 
 
 # FutureTrust Partners
 
-<img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/rub.png" width="50" alt="FutureTrust">
-<img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/ecsec.png" width="50" alt="FutureTrust">
-<img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/arhs.png" width="50" alt="FutureTrust">
-<img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/eema.png" width="50" alt="FutureTrust">
-<img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/brz.png" width="50" alt="FutureTrust">
-<img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/bva.png" width="50" alt="FutureTrust">
-<img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/pwc.png" width="50" alt="FutureTrust">
-<img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/soton.png" width="50" alt="FutureTrust">
-<img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/multicert.png" width="50" alt="FutureTrust">
-<img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/trustable.png" width="50" alt="FutureTrust">
-<img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/asit.png" width="50" alt="FutureTrust">
-<img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/psda.jpg" width="50" alt="FutureTrust">
-<img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/tubitak.png" width="50" alt="FutureTrust">
-<img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/lawtrust.jpg" width="50" alt="FutureTrust">
-<img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/mup.png" width="50" alt="FutureTrust">
+<a href="https://www.ruhr-uni-bochum.de" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/rub.png" width="50" alt="FutureTrust"></a>
+<a href="https://www.ecsec.de/startseite/" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/ecsec.png" width="50" alt="FutureTrust"></a>
+<a href="https://www.arhs-group.com/" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/arhs.png" width="50" alt="FutureTrust"></a>
+<a href="https://www.eema.org/" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/eema.png" width="50" alt="FutureTrust"></a>
+<a href="https://en.brz.gv.at/" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/brz.png" width="50" alt="FutureTrust"></a>
+<a href="https://www.bva.bund.de/DE/Home/home_node.html" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/bva.png" width="50" alt="FutureTrust"></a>
+<a href="https://www.pwc.com/" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/pwc.png" width="50" alt="FutureTrust"></a>
+<a href="https://www.southampton.ac.uk/" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/soton.png" width="50" alt="FutureTrust"></a>
+<a href="https://www.multicert.com/en/" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/multicert.png" width="50" alt="FutureTrust"></a>
+<a href="" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/trustable.png" width="50" alt="FutureTrust"></a>
+<a href="https://www.a-sit.at/" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/asit.png" width="50" alt="FutureTrust"></a>
+<a href="https://sda.gov.ge/?lang=en" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/psda.jpg" width="50" alt="FutureTrust"></a>
+<a href="https://www.tubitak.gov.tr/en" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/tubitak.png" width="50" alt="FutureTrust"></a>
+<a href="https://www.lawtrust.co.za/" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/lawtrust.jpg" width="50" alt="FutureTrust"></a>
+<a href="http://www.mup.gov.rs/wps/portal/en" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/mup.png" width="50" alt="FutureTrust"></a>
