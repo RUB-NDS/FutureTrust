@@ -26,7 +26,7 @@ Information about the existing eID services were collected from whitepapers and 
 <a href="https://www.pwc.com/" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/pwc.png" width="50" alt="FutureTrust"></a>
 <a href="https://www.southampton.ac.uk/" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/soton.png" width="50" alt="FutureTrust"></a>
 <a href="https://www.multicert.com/en/" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/multicert.png" width="50" alt="FutureTrust"></a>
-<a href="" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/trustable.png" width="50" alt="FutureTrust"></a>
+<a href="" target="http://www.trustable.de/"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/trust.png" width="50" alt="FutureTrust"></a>
 <a href="https://www.a-sit.at/" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/asit.png" width="50" alt="FutureTrust"></a>
 <a href="https://sda.gov.ge/?lang=en" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/psda.jpg" width="50" alt="FutureTrust"></a>
 <a href="https://www.tubitak.gov.tr/en" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/tubitak.png" width="50" alt="FutureTrust"></a>
