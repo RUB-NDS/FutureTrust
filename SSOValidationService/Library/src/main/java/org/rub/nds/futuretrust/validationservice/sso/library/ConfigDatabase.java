@@ -1,8 +1,6 @@
 package org.rub.nds.futuretrust.validationservice.sso.library;
 
-import org.rub.nds.futuretrust.cvs.sso.api.ConfigurationType;
 import org.rub.nds.futuretrust.cvs.sso.api.DatabaseType;
-import org.rub.nds.sso.api.VerificationProfileType;
 
 /**
  *

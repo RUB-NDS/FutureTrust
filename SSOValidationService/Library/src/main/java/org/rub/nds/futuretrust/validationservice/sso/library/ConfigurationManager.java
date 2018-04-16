@@ -1,15 +1,14 @@
 package org.rub.nds.futuretrust.validationservice.sso.library;
 
 import java.io.File;
-import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.SchemaFactory;
 import org.rub.nds.futuretrust.cvs.sso.api.DatabaseType;
+import org.rub.nds.saml.samllib.verifier.SAMLIDCache;
 
 /**
  *
@@ -21,6 +20,8 @@ public class ConfigurationManager {
 
     public ConfigurationManager() throws JAXBException {
         initDB("configFile");
+        SAMLIDCache.initialize();
+        SAMLIDCache.setCacheDuration(30);
     }
 
     public ConfigurationManager(String filepath) throws JAXBException {

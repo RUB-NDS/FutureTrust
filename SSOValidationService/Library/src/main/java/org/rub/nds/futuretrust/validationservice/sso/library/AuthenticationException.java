@@ -22,7 +22,8 @@ public class AuthenticationException extends Exception {
      * Constructs an instance of <code>AuthenticationException</code> with the
      * specified detail message.
      *
-     * @param msg the detail message.
+     * @param msg
+     *            the detail message.
      */
     public AuthenticationException(String msg) {
         super(msg);
