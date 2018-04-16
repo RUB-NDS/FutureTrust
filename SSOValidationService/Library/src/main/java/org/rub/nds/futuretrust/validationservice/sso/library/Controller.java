@@ -11,8 +11,6 @@ import org.rub.nds.sso.api.VerificationLogType;
  * @author vladi
  */
 
-
-
 public class Controller {
     VerifyRequest request;
 
@@ -44,4 +42,3 @@ public class Controller {
         }
     }
 }
-
