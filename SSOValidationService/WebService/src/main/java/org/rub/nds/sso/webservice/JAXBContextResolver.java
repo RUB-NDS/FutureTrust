@@ -35,7 +35,7 @@ import org.rub.nds.futuretrust.cvs.sso.api.VerificationRequestType;
 import org.rub.nds.sso.api.VerificationResponseType;
 
 @Provider
-public final class JAXBContextResolver implements ContextResolver<JAXBContext> {
+public class JAXBContextResolver implements ContextResolver<JAXBContext> {
 
     private JAXBContext context;
 

@@ -1,6 +1,8 @@
 package org.rub.nds.futuretrust.validationservice.sso.library;
 
 import java.io.File;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
@@ -19,13 +21,17 @@ public class ConfigurationManager {
     private static final String configFile = "config.xml";
 
     public ConfigurationManager() throws JAXBException {
-        initDB("configFile");
-        SAMLIDCache.initialize();
-        SAMLIDCache.setCacheDuration(30);
+        init("configFile");
     }
 
     public ConfigurationManager(String filepath) throws JAXBException {
+        init(filepath);
+    }
+
+    private void init(String filepath) throws JAXBException {
         initDB(filepath);
+        SAMLIDCache.initialize();
+        SAMLIDCache.setCacheDuration(30);
     }
 
     private void initDB(String filepath) throws JAXBException {
