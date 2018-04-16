@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:DataBaseType xmlns="http://www.api.sso.cvs.futuretrust.nds.rub.org" xmlns:ns2="http://www.api.sso.nds.rub.org" xmlns:ns3="org.rub.nds.futuretrust.cvs.sso.api">
+    <registeredEntity>
+        <authentication>
+            <client_id>e5fb65b7-59ec-4a12-a5d3-643ad8705f89</client_id>
+            <client_secret>10f0e8ad-2c49-4feb-9470-762837fb780f</client_secret>
+        </authentication>
+        <verificationProfile>
+            <ns2:samlTokenVerificationChecks>
+                <ns2:verifySchema>true</ns2:verifySchema>
+                <ns2:verifyXSW>true</ns2:verifyXSW>
+                <ns2:verifySAMLAssertionID>true</ns2:verifySAMLAssertionID>
+                <ns2:verifySAMLAssertionSignatureTrusted>true</ns2:verifySAMLAssertionSignatureTrusted>
+                <ns2:verifySAMLAssertionInResponseTo>true</ns2:verifySAMLAssertionInResponseTo>
+                <ns2:verifySAMLAssertionSbjConfirmationTimestamps>true</ns2:verifySAMLAssertionSbjConfirmationTimestamps>
+                <ns2:verifySAMLAssertionSbjConfirmationDestination>true</ns2:verifySAMLAssertionSbjConfirmationDestination>
+                <ns2:verifySAMLAssertionSbjInResponseTo>true</ns2:verifySAMLAssertionSbjInResponseTo>
+                <ns2:verifySAMLAssertionConditionsAudience>true</ns2:verifySAMLAssertionConditionsAudience>
+            </ns2:samlTokenVerificationChecks>
+            <ns2:samlTokenVerificationParameters>
+                <ns2:destination>https://test.com</ns2:destination>
+                <ns2:saml_metadata>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;md:EntitiesDescriptor Name="Group1" validUntil="2030-06-09T09:00:00" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"&gt;
+    &lt;md:EntityDescriptor entityID="eLearning SAML SSO IdP"&gt;
+        &lt;md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"&gt;
+            &lt;md:KeyDescriptor use="signing"&gt;
+                &lt;ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"&gt;
+                    &lt;ds:X509Data&gt;
+                        &lt;ds:X509Certificate&gt;MIIDiTCCAnGgAwIBAgIELzcgDTANBgkqhkiG9w0BAQsFADB1MQswCQYDVQQGEwJERTEQMA4GA1UECBMHVW5rbm93bjEQMA4GA1UEBxMHVW5rbm93bjEQMA4GA1UEChMHVW5rbm93bjETMBEGA1UECxMKc2tpZGVudGl0eTEbMBkGA1UEAxMSd3d3LnNraWRlbnRpdHkuY29tMB4XDTEzMDYxMDE1MTcyMloXDTE2MDYwOTE1MTcyMlowdTELMAkGA1UEBhMCREUxEDAOBgNVBAgTB1Vua25vd24xEDAOBgNVBAcTB1Vua25vd24xEDAOBgNVBAoTB1Vua25vd24xEzARBgNVBAsTCnNraWRlbnRpdHkxGzAZBgNVBAMTEnd3dy5za2lkZW50aXR5LmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIpvJa68Ib9nERP9+jL17w3bwyGXJ4ZoW10zJPtUA9N2QLTD8yI2kG3P4fv69Koid93ouFg/bTbfOTs7BBtdQWJ1xCtE80aHGAWto3Eo/9iryI0yZwhwkNEWr4dK3PTpb7JfyNLBWNCZFgtxQDEAX6PWKu4qsf7PLVp4tfl5JhKvoJCKqDDB3qQkhIGIV9YvDd/zidlCWghdr5D1F1XZqDpkDBEDf+MctC4M4Q6PSNsbU+4z42LDHWJ4d9OKRe86t8mzl/qrBvyKA1LLaZWFvw3J1NX/WHivI3Wn2/aGGsTr0IToiYW7SWKbp/f0kcPVUoVxMOfFuxZXmj2A0dHInZcCAwEAAaMhMB8wHQYDVR0OBBYEFKJzJ2C1jiSyrvSX1wp4qFsNqfUnMA0GCSqGSIb3DQEBCwUAA4IBAQAj47UXFntw/V4WRZSUoeIHLBfD2r2MyDYX1C3ocigh6gihTlzz/cTFn3FXjokpYIXDUUVo9Mjl+2X9Iwnn4uVhhF49OD0fd11YU4sN/Cn7UoG6J10OYqiei3KCu6jYSxGtv0vzpH+2u5iUKH3AzQFUlAAvmNS7uL5wRv7iPBgtHdYpxzRneBG8GmaGNzk8DuU6sjHcPxf+RtYsR55LV2pOMm5xInqFL8GDWk03XUmSsnlU3B5Ja0grWyokilw99bn6s1p5QpWkrngs3P819abeTOfxJG7Ttvl8bGHG0BN+1eZkK5VMn+xNQ8bIomtttwyel0GjMqOFczdwRpUyjqDC&lt;/ds:X509Certificate&gt;
+                    &lt;/ds:X509Data&gt;
+                &lt;/ds:KeyInfo&gt;
+            &lt;/md:KeyDescriptor&gt;
+            &lt;md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://carbon.cloud.nds.rub.de:8080/idp/saml"/&gt;
+            &lt;md:NameIDFormat&gt;urn:oasis:names:tc:SAML:2.0:nameid-format:transient&lt;/md:NameIDFormat&gt;
+        &lt;/md:IDPSSODescriptor&gt;
+    &lt;/md:EntityDescriptor&gt;
+&lt;/md:EntitiesDescriptor&gt; </ns2:saml_metadata>
+            </ns2:samlTokenVerificationParameters>
+        </verificationProfile>
+    </registeredEntity>
+    <registeredEntity>
+        <authentication>
+            <client_id>efa7e8db-eb66-4707-9d83-068d717759f4</client_id>
+            <client_secret>a7350976-68b6-4ed4-ab58-827d5bd585bb</client_secret>
+        </authentication>
+        <verificationProfile>
+            <ns2:oidcVerificationChecks>
+                <ns2:verifyIssuer>true</ns2:verifyIssuer>
+                <ns2:verifyAudience>true</ns2:verifyAudience>
+                <ns2:verifyNonce>true</ns2:verifyNonce>
+                <ns2:verifyIssuedAt>true</ns2:verifyIssuedAt>
+                <ns2:verifyExpired>true</ns2:verifyExpired>
+                <ns2:vierfyNotBefore>false</ns2:vierfyNotBefore>
+                <ns2:verifySubClaims>false</ns2:verifySubClaims>
+            </ns2:oidcVerificationChecks>
+            <ns2:oidcVerificationParameters>
+                <ns2:audience>http://test2.com</ns2:audience>
+                <ns2:oidc_metadata>{"keys":[{"kty":"RSA","e":"AQAB","use":"sig","kid":"rsa-test","alg":"RS256","n":"mTkVHAyJoWD0SN9HYji3z44oQwnhHzHnKd-rrUtm0uJJALrs0Hxp0UehU40vanKKB-Zu54RUcnbZ4wJxyS8AAPACV4BIETO0crCKDfyXXH4r4VSrqfGxxmEohBnFCM2RQE6OU3vdGzr46fCUmmhH9b-GloQpMjPJPPKWinNkWchpDwbvJFFAjardXdi_WLiCGcX6zgXBD8U76gEj-NDEObNy8Q5ilWTO_kH-NVuexpVFqU5ibh3geBe32jZ4kNClKpQZIrqv3nnWQQ3-NpPb_hGzPU2ZkxiKgVPNH8V7gVVMlufGAR7vXOqCpI0oWXVOseUH3D0p4thVMHv_vQtUiQ"}]}</ns2:oidc_metadata>
+                <ns2:client_secret>test123456</ns2:client_secret>
+            </ns2:oidcVerificationParameters>
+        </verificationProfile>
+    </registeredEntity>
+</ns3:DataBaseType>
