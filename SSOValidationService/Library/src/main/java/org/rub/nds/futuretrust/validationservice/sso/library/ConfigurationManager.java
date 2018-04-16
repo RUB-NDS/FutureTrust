@@ -22,7 +22,7 @@ public class ConfigurationManager {
     public ConfigurationManager() throws JAXBException {
         initDB("configFile");
     }
-    
+
     public ConfigurationManager(String filepath) throws JAXBException {
         initDB(filepath);
     }
@@ -35,5 +35,5 @@ public class ConfigurationManager {
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
         JAXBElement<DatabaseType> el = jaxbUnmarshaller.unmarshal(source, DatabaseType.class);
         ConfigDatabase.setConfig(el.getValue());
-    }    
+    }
 }

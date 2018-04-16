@@ -7,14 +7,7 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.PropertyException;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.util.JAXBSource;
-import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
-import org.joda.time.Chronology;
-import org.joda.time.DateTime;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -54,7 +47,6 @@ public class ConfigurationManagerTest {
     public void tearDown() {
     }
 
-
     @Test
     public void testSomeMethod() throws PropertyException, JAXBException {
         DatabaseType db = new DatabaseType();
@@ -73,6 +65,7 @@ public class ConfigurationManagerTest {
 
     private VerificationProfileType generateOIDCProfile() {
         VerificationProfileType profile2 = new VerificationProfileType();
+        profile2.setID("oidc");
         OidcVerificationChecksType oidcChecks = generateOidcChecks();
         OidcVerificationParametersType oidcParams = gnerateOidcParams();
         profile2.setOidcVerificationParameters(oidcParams);
@@ -101,6 +94,7 @@ public class ConfigurationManagerTest {
 
     private VerificationProfileType generateSAMLProfile() {
         VerificationProfileType profile1 = new VerificationProfileType();
+        profile1.setID("saml");
         SamlTokenVerificationChecksType samlChecks = samlChecks();
         SamlVerificationParametersType verifyParams = samlParams();
         profile1.setSamlTokenVerificationChecks(samlChecks);

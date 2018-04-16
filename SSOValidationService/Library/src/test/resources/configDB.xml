@@ -2,10 +2,11 @@
 <ns3:DataBaseType xmlns="http://www.api.sso.cvs.futuretrust.nds.rub.org" xmlns:ns2="http://www.api.sso.nds.rub.org" xmlns:ns3="org.rub.nds.futuretrust.cvs.sso.api">
     <registeredEntity>
         <authentication>
-            <client_id>e5fb65b7-59ec-4a12-a5d3-643ad8705f89</client_id>
-            <client_secret>10f0e8ad-2c49-4feb-9470-762837fb780f</client_secret>
+            <client_id>d1d6261a-ac5a-49a6-8df6-709d4cfcc96b</client_id>
+            <client_secret>0953be04-122a-475c-8aba-1ec8b79c15d5</client_secret>
         </authentication>
         <verificationProfile>
+            <ns2:ID>saml</ns2:ID>
             <ns2:samlTokenVerificationChecks>
                 <ns2:verifySchema>true</ns2:verifySchema>
                 <ns2:verifyXSW>true</ns2:verifyXSW>
@@ -40,10 +41,11 @@
     </registeredEntity>
     <registeredEntity>
         <authentication>
-            <client_id>efa7e8db-eb66-4707-9d83-068d717759f4</client_id>
-            <client_secret>a7350976-68b6-4ed4-ab58-827d5bd585bb</client_secret>
+            <client_id>71620c17-62c5-4d9d-8fc1-e76c88fdfa2b</client_id>
+            <client_secret>1dbbdcf9-9fcd-43d3-970f-7581743486bd</client_secret>
         </authentication>
         <verificationProfile>
+            <ns2:ID>oidc</ns2:ID>
             <ns2:oidcVerificationChecks>
                 <ns2:verifyIssuer>true</ns2:verifyIssuer>
                 <ns2:verifyAudience>true</ns2:verifyAudience>

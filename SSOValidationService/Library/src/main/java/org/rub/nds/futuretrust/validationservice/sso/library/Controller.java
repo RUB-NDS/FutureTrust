@@ -28,6 +28,10 @@ public class Controller {
             // um.unmarshal((Node) request.getOptionalInputs()
             // .getAny().get(0));
             VerificationRequestType rq = (VerificationRequestType) request.getOptionalInputs().getAny().get(0);
+            if (!AuthenticationVerifier.authenticate(ConfigDatabase.getConfig(), rq)){
+                throw new AuthenticationException("Authentication was not successful!");
+            }
+            
             EidProvider provider = new SamlEidProvider();
             result = provider.verify(rq.getSaml());
 
