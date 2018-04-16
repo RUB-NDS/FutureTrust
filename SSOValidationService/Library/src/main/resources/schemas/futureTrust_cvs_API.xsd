@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+	xmlns:dss="urn:oasis:names:tc:dss:1.0:core:schema" xmlns:saml="urn:oasis:names:tc:SAML:1.0:assertion"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://www.api.sso.cvs.futuretrust.nds.rub.org"
+	xmlns="http://www.api.sso.cvs.futuretrust.nds.rub.org"
+	xmlns:sso="http://www.api.sso.nds.rub.org">
+	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#"
+		schemaLocation="./specs/xmldsig-core-schema.xsd" />
+	<xs:import namespace="urn:oasis:names:tc:SAML:1.0:assertion"
+		schemaLocation="specs/oasis-sstc-saml-schema-protocol-1.1.xsd" />
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace"
+		schemaLocation="specs/xml.xsd" />
+	<xs:import namespace="urn:oasis:names:tc:dss:1.0:core:schema"
+		schemaLocation="specs/oasis-dss-core-schema-v1.0-os.xsd" />
+	<xs:import namespace="http://www.api.sso.nds.rub.org"
+		schemaLocation="./ssolib_API.xsd" />
+	<xs:annotation>
+		<xs:documentation>This document describes the Single Sign-On Interface
+			of the Comprehensive Validation Service.
+		</xs:documentation>
+	</xs:annotation>
+
+	<xs:complexType name="AnyType">
+		<xs:sequence>
+			<xs:any maxOccurs="unbounded" minOccurs="0" processContents="lax" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InternationalStringType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute ref="xml:lang" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="Result">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResultMajor" type="xs:anyURI" />
+				<xs:element minOccurs="0" name="ResultMinor" type="xs:anyURI" />
+				<xs:element minOccurs="0" name="ResultMessage"
+					type="dss:InternationalStringType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="VerifyRequest" type="dss:RequestBaseType" />
+
+	<xs:complexType name="RequestBaseType">
+		<xs:sequence>
+			<xs:element minOccurs="1" name="OptionalInputs">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="1"
+							name="cvs_verification_request" type="verificationRequest_Type">
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="InputDocuments">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:choice maxOccurs="unbounded">
+							<xs:element name="Other" type="dss:AnyType" />
+						</xs:choice>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="RequestID" type="xs:string" use="optional" />
+		<xs:attribute name="Profile" type="xs:anyURI" use="optional" />
+	</xs:complexType>
+
+
+	<xs:complexType name="ResponseBaseType">
+		<xs:sequence>
+			<xs:element ref="dss:Result" />
+			<xs:element minOccurs="0" name="OptionalOutputs">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="1"
+							name="cvs_verification_response" type="verificationResponse_Type" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="RequestID" type="xs:string" use="optional" />
+		<xs:attribute name="Profile" type="xs:anyURI" use="required" />
+	</xs:complexType>
+
+	<xs:simpleType name="ssoProtocol_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="saml" />
+			<xs:enumeration value="oidc" />
+			<xs:enumeration value="oauth" />
+			<xs:enumeration value="x509" />
+			<xs:enumeration value="config" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="authentication_Type">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="method">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="username/pw" />
+						<xs:enumeration value="pop" />
+						<xs:enumeration value="mutual_tls" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="client_id" type="xs:string" />
+			<xs:element minOccurs="0" name="client_secret" type="xs:string" />
+			<xs:element minOccurs="0" name="pop_token" type="xs:string" />
+			<xs:element minOccurs="0" name="client_cert" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+
+	<xs:complexType name="verificationRequest_Type">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="sso_protocol"
+				type="ssoProtocol_Type" />
+			<xs:element maxOccurs="1" minOccurs="1" name="authentication"
+				type="authentication_Type" />
+			<xs:element minOccurs="0" name="saml" type="sso:samlType" />
+			<xs:element maxOccurs="1" minOccurs="0" name="oidc"
+				type="sso:oidcType" />
+			<xs:element name="logLevel" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="debug"></xs:enumeration>
+						<xs:enumeration value="warn"></xs:enumeration>
+						<xs:enumeration value="error"></xs:enumeration>
+						<xs:enumeration value="info"></xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+	<xs:group name="NewGroupDefinition">
+		<xs:sequence />
+	</xs:group>
+
+
+	<xs:element name="VerifyResponse" type="dss:ResponseBaseType" />
+
+
+	<xs:complexType name="ConfigurationType">
+		<xs:sequence>
+			<xs:element name="ID" type="xs:string" />
+			<xs:element maxOccurs="1" minOccurs="0" name="authentication"
+				type="authentication_Type">
+			</xs:element>
+			<xs:element name="verificationProfile" type="sso:verificationProfileType"
+				minOccurs="1" maxOccurs="1"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="configurationRequestType">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="mode">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="add" />
+						<xs:enumeration value="delete" />
+						<xs:enumeration value="modify" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="1" name="authentication"
+				type="authentication_Type">
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="1"
+				name="configuration" type="ConfigurationType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="ConfigurationRequest" type="configurationRequestType" />
+
+	<xs:complexType name="verificationResponse_Type">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="authenticatedUser"
+				type="sso:authenticatedUserType" />
+			<xs:choice>
+				<xs:element maxOccurs="1" minOccurs="0"
+					name="samlAuthnRequestVerifiedChecks" type="sso:samlAuthnRequestVerificationChecksType">
+				</xs:element>
+				<xs:element maxOccurs="1" minOccurs="0"
+					name="samlTokenVerifiedChecks" type="sso:samlTokenVerificationChecksType">
+				</xs:element>
+				<xs:element maxOccurs="1" minOccurs="0" name="oidcVerifiedChecks"
+					type="sso:oidcVerificationChecksType">
+				</xs:element>
+			</xs:choice>
+			<xs:element name="verificationLog" type="sso:verificationLogType"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+	<xs:element name="DataBase" type="DatabaseType"></xs:element>
+
+	<xs:complexType name="DatabaseType">
+		<xs:sequence>
+			<xs:element name="registeredEntity" type="EntityType"
+				maxOccurs="unbounded" minOccurs="1"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EntityType">
+		<xs:sequence>
+			<xs:element name="authentication" type="authentication_Type"
+				minOccurs="1" maxOccurs="unbounded">
+			</xs:element>
+			<xs:element name="verificationProfile" type="sso:verificationProfileType"
+				minOccurs="1" maxOccurs="unbounded">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

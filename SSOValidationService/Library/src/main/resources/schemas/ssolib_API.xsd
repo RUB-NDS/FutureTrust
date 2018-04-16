@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	attributeFormDefault="unqualified" elementFormDefault="qualified"
+	targetNamespace="http://www.api.sso.nds.rub.org" xmlns:sso="http://www.api.sso.nds.rub.org">
+	<xs:annotation>
+		<xs:documentation>This document describes the Single Sign-On Interface
+			of the Single Sign-On library.
+		</xs:documentation>
+	</xs:annotation>
+
+	<xs:complexType name="samlType">
+		<xs:complexContent>
+			<xs:extension base="sso:ssoType">
+				<xs:sequence>
+
+					<xs:element maxOccurs="1" minOccurs="0" name="samlRequest"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="0" name="samlResponse"
+						type="xs:string" />
+
+					<xs:element maxOccurs="1" minOccurs="0"
+						name="samlVerificationParameters" type="sso:samlVerificationParametersType">
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0"
+						name="samlVerificationProfile" type="xs:string">
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0"
+						name="samlTokenVerificationChecks" type="sso:samlTokenVerificationChecksType">
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0"
+						name="samlAuthnReqVerificationChecks" type="sso:samlAuthnRequestVerificationChecksType">
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="samlVerificationParametersType">
+		<xs:sequence>
+			<xs:element name="x509certificate" type="xs:string"
+				maxOccurs="unbounded" minOccurs="0" />
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="samlSchema"
+				type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+						Multiple or one XML Schema each as a String
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="samlSchema_url"
+				type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+						Multiple or one URL pointing to XML Schema each as a String
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="audience"
+				type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+						Specified Audience for the received tokens, e.g.
+						Salesforce
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="destination"
+				type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+						The exact URL of the endpoint, where the Token
+						was sent by the IdP.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="time_limitation"
+				type="xs:time">
+				<xs:annotation>
+					<xs:documentation>
+						Defines a maximum validity period of an
+						authentication token. This is independent of the
+						NotOnOrAfter
+						value.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="hok_x509certificate"
+				type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+						Holder-of-key Certificate used during the
+						verification.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="saml_metadata"
+				type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+						Metadata storing key material and URLs. The
+						metadata file is sent as string.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="saml_metadata_url"
+				type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="samlTokenVerificationChecksType">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="verifySchema"
+				type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>
+						Enables the XML Schema verification
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="verifyXSW"
+				type="xs:boolean">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="verifySAMLResponseID"
+				type="xs:boolean">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="verifySAMLResponseIssueInstant" type="xs:boolean">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="verifySAMLResponseSignatureTrusted" type="xs:boolean">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="verifySAMLResponseSignature" type="xs:boolean">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="verifySAMLResponseInResponseTo" type="xs:boolean">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="verifySAMLAssertionID" type="xs:boolean">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="verifySAMLAssertionSignatureTrusted" type="xs:boolean">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="verifySAMLAssertionSignature" type="xs:boolean">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="verifySAMLAssertionInResponseTo" type="xs:boolean">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="verifySAMLAssertionIssueInstant" type="xs:boolean">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="verifySAMLAssertionSbjConfirmationTimestamps" type="xs:boolean">
+			</xs:element>
+			<xs:element name="verifySAMLAssertionSbjConfirmationDestination"
+				type="xs:boolean" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="verifySAMLAssertionSbjInResponseTo"
+				type="xs:boolean" minOccurs="0" maxOccurs="1"></xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="verifySAMLAssertionConditionsTimestamps" type="xs:boolean">
+			</xs:element>
+			<xs:element name="verifySAMLAssertionConditionsAudience"
+				type="xs:boolean" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="verifySAMLAssertionAuthnMethod" type="xs:boolean">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="verifyHolderOfKey"
+				type="xs:boolean" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+
+	<xs:complexType name="samlAuthnRequestVerificationChecksType">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="verifySchema"
+				type="xs:boolean">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="verifyXSW"
+				type="xs:boolean">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="verifyAuthnReqSignatureTrusted" type="xs:boolean">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="verifyAuthnReqSignature" type="xs:boolean">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="verifyAuthnReqIssueInstant" type="xs:boolean">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="verifyAuthnReqID"
+				type="xs:boolean" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="authenticatedUserType">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="userID"
+				type="xs:string">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="userAdditionalInformation" type="sso:userAdditionalInformationType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="userAdditionalInformationType">
+		<xs:sequence>
+			<xs:element name="userInfo" type="sso:userInfoType"
+				minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="userInfoType">
+		<xs:sequence>
+			<xs:element name="type" type="xs:string" maxOccurs="1"
+				minOccurs="1"></xs:element>
+			<xs:element name="value" type="xs:string" maxOccurs="1"
+				minOccurs="1"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="verificationLogType">
+		<xs:sequence>
+			<xs:element name="logLevel" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="debug"></xs:enumeration>
+						<xs:enumeration value="info"></xs:enumeration>
+						<xs:enumeration value="warn"></xs:enumeration>
+						<xs:enumeration value="error"></xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Exception" type="xs:string" minOccurs="0"
+				maxOccurs="1"></xs:element>
+			<xs:element name="verificationLog" type="xs:string"
+				minOccurs="0" maxOccurs="1"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="verificationProfileType">
+		<xs:sequence>
+
+			<xs:element name="ID" type="xs:string" minOccurs="1"
+				maxOccurs="1"></xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="samlTokenVerificationChecks" type="sso:samlTokenVerificationChecksType">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="samlAuthnReqVerificationChecks" type="sso:samlAuthnRequestVerificationChecksType">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="samlTokenVerificationParameters" type="sso:samlVerificationParametersType">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="oidcVerificationChecks" type="sso:oidcVerificationChecksType">
+			</xs:element>
+			<xs:element name="oidcVerificationParameters" type="sso:oidcVerificationParametersType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="log" type="sso:verificationLogType"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="oidcType">
+		<xs:complexContent>
+			<xs:extension base="sso:ssoType">
+				<xs:sequence>
+
+					<xs:element maxOccurs="1" minOccurs="0" name="oidcResponse"
+						type="xs:string">
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0"
+						name="oidcVerificationProfile" type="xs:string">
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0"
+						name="oidcVerificationParameters" type="sso:oidcVerificationParametersType">
+					</xs:element>
+					<xs:element name="oidcVerificiationChecks" type="sso:oidcVerificationChecksType"
+						maxOccurs="1" minOccurs="0" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+
+	</xs:complexType>
+
+	<xs:complexType name="oidcVerificationParametersType">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="x509certificate"
+				type="xs:string">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="audience"
+				type="xs:string">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="oidc_metadata"
+				type="xs:string">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="oidc_metadata_url"
+				type="xs:string">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="time_limitation"
+				type="xs:time">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="pkceParameters"
+				type="sso:pkceParametersType">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="client_secret"
+				type="xs:string">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="cnf"
+				type="sso:proofOfPossessionType">
+			</xs:element>
+			<xs:element name="code" type="xs:string" />
+			<xs:element name="accessToken" type="xs:string" />
+			<xs:element name="subClaims" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="pkceParametersType">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="code_challenge"
+				type="xs:string">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="1" name="code_verifier"
+				type="xs:string">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="1"
+				name="code_challenge_method">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="S256" />
+						<xs:enumeration value="plain" />
+						<xs:enumeration value="S512" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="proofOfPossessionType">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="kid" type="xs:string">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="jwk" type="sso:jwkType" />
+			<xs:element maxOccurs="1" minOccurs="0" name="jwe" type="xs:string" />
+			<xs:element maxOccurs="1" minOccurs="0" name="jku" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="jwkType">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="kty" type="xs:string">
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="sig" type="xs:string" />
+			<xs:element maxOccurs="1" minOccurs="0" name="crv" type="xs:string" />
+			<xs:element maxOccurs="1" minOccurs="0" name="x" type="xs:string" />
+			<xs:element maxOccurs="1" minOccurs="0" name="y" type="xs:string" />
+			<xs:element maxOccurs="1" minOccurs="0" name="alg" type="xs:string" />
+			<xs:element maxOccurs="1" minOccurs="0" name="k" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="oidcVerificationChecksType">
+		<xs:sequence>
+			<xs:element name="verifyIssuer" type="xs:boolean" />
+			<xs:element name="verifyAudience" type="xs:boolean" />
+			<xs:element name="verifyNonce" type="xs:boolean" />
+			<xs:element name="verifyIssuedAt" type="xs:boolean" />
+			<xs:element name="verifyExpired" type="xs:boolean" />
+			<xs:element name="vierfyNotBefore" type="xs:boolean" />
+			<xs:element name="verifySubClaims" type="xs:boolean" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:element name="authenticatedUser" type="sso:authenticatedUserType" />
+
+
+	<xs:complexType name="verificationProfilesType">
+		<xs:sequence>
+			<xs:element name="verificationProfile" type="sso:verificationProfileType"
+				minOccurs="1" maxOccurs="unbounded">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="tokenSignatureDecoratorType">
+		<xs:sequence>
+			<xs:element name="signAssertion" type="xs:boolean"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="signResponse" type="xs:boolean"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="signAuthnRequest" type="xs:boolean"
+				minOccurs="0" maxOccurs="1"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="samlRequestProfileType">
+		<xs:sequence>
+			<xs:element name="ID" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="authnrequestHeaderDec" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="issuer" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="relayState" type="xs:string" minOccurs="0"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="assertionConsumerServiceURL" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="forceAuthn" type="xs:boolean" minOccurs="0"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="destination" type="xs:string" minOccurs="0"
+				maxOccurs="1">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="responseHeaderDecoratorType">
+		<xs:sequence>
+			<xs:element name="issuerStr" type="xs:string" minOccurs="1"
+				maxOccurs="1"></xs:element>
+			<xs:element name="statusCodeURI" type="xs:string"
+				minOccurs="0" maxOccurs="1"></xs:element>
+			<xs:element name="addInResponseTo" type="xs:boolean"
+				minOccurs="0" maxOccurs="1"></xs:element>
+			<xs:element name="addDestination" type="xs:boolean"
+				minOccurs="0" maxOccurs="1"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="assertionHeaderDecoratorType">
+		<xs:sequence>
+			<xs:element name="issuerStr" type="xs:string" minOccurs="1"
+				maxOccurs="1"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="assertionConditionsDecoratorType">
+		<xs:sequence>
+			<xs:element name="setNotBefore" type="xs:boolean"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="setNotAfter" type="xs:boolean"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="timestampDuration" type="xs:int"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="audienceRestriction" type="xs:string"
+				minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="assertionSubjectDecoratorType">
+		<xs:sequence>
+			<xs:element name="nameIDValue" type="xs:string" minOccurs="0"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="nameIDformat" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="nameIDnameQualifier" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="nameIDsPNameQualifier" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="nameIDsPProvidedID" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="sbjConfirmMethod" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="sbjConfirmationDataAddress" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="sbjConfirmationDataRecipient" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="timestampDuration" type="xs:int"
+				minOccurs="0" maxOccurs="1"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="assertionAuthnStatementDecoratorType">
+		<xs:sequence>
+			<xs:element name="timestamps" type="xs:int" minOccurs="0"
+				maxOccurs="1"></xs:element>
+			<xs:element name="sbjLocalityAddress" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="sbjLocalityDNS" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="authnContextDeclStr" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="authnContextClassRefStr" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="authnContextDeclRefStr" type="xs:string"
+				minOccurs="0" maxOccurs="1"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="audienceRestrictionsType">
+		<xs:sequence>
+			<xs:element name="NewElement" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="samlTokenProfileType">
+		<xs:sequence>
+			<xs:element name="ID" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="responseHeaderDecorator" type="sso:responseHeaderDecoratorType"
+				minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="assertionHeaderDecorator" type="sso:assertionHeaderDecoratorType"
+				minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="assertionConditionsDecorator" type="sso:assertionConditionsDecoratorType"
+				minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="assertionSubjectDecorator" type="sso:assertionSubjectDecoratorType"
+				minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="assertionAuthnStatementDecorator"
+				type="sso:assertionAuthnStatementDecoratorType" minOccurs="1"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="tokenSignatureDecorator" minOccurs="1"
+				maxOccurs="1" type="sso:tokenSignatureDecoratorType">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="samlTokenProfilesType">
+
+		<xs:sequence>
+			<xs:element name="samlTokenProfile" type="sso:samlTokenProfileType"
+				minOccurs="1" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="samlRequestProfilesType">
+		<xs:sequence>
+			<xs:element name="samlRequestProfile" type="sso:samlRequestProfileType"
+				minOccurs="1" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="samlVerificationProfilesType">
+		<xs:sequence>
+			<xs:element name="samlVerificationProfile" type="sso:verificationProfileType"
+				minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="samlTokenProfiles" type="sso:samlTokenProfilesType" />
+	<xs:element name="samlRequestProfiles" type="sso:samlRequestProfilesType" />
+
+	<xs:element name="saml" type="sso:samlType"></xs:element>
+
+	<xs:element name="oidc" type="sso:oidcType"></xs:element>
+
+	<xs:complexType name="verificationResponse_Type">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1"
+				name="authenticatedUser" type="sso:authenticatedUserType" />
+            <xs:element name="result" type="xs:boolean"></xs:element>
+            <xs:choice>
+				<xs:element maxOccurs="1" minOccurs="0"
+					name="samlAuthnRequestVerifiedChecks"
+					type="sso:samlAuthnRequestVerificationChecksType">
+				</xs:element>
+				<xs:element maxOccurs="1" minOccurs="0"
+					name="samlTokenVerifiedChecks"
+					type="sso:samlTokenVerificationChecksType">
+				</xs:element>
+				<xs:element maxOccurs="1" minOccurs="0"
+					name="oidcVerifiedChecks" type="sso:oidcVerificationChecksType">
+				</xs:element>
+			</xs:choice>
+			<xs:element name="verificationLog"
+				type="sso:verificationLogType">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="verificationResponse" type="sso:verificationResponse_Type">
+	</xs:element>
+
+
+	<xs:complexType name="ssoType" abstract="true"></xs:complexType>
+</xs:schema>
