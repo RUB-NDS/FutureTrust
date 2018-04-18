@@ -27,11 +27,9 @@ import java.util.Map;
 import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.Provider;
 import javax.xml.bind.JAXBContext;
-import oasis.names.tc.dss._1_0.core.schema.AnyType;
-import oasis.names.tc.dss._1_0.core.schema.VerifyRequest;
 import org.eclipse.persistence.jaxb.JAXBContextFactory;
 import org.eclipse.persistence.jaxb.MarshallerProperties;
-import org.rub.nds.futuretrust.cvs.sso.api.VerificationRequestType;
+import org.rub.nds.futuretrust.cvs.sso.api.RequestBaseType;
 import org.rub.nds.sso.api.VerificationResponseType;
 
 @Provider
@@ -63,8 +61,10 @@ public class JAXBContextResolver implements ContextResolver<JAXBContext> {
         props.put("eclipselink.media-type", "application/json");
         props.put("eclipselink.json.include-root", false);
         props.put(MarshallerProperties.JSON_VALUE_WRAPPER, "arguments");
-        this.context = JAXBContextFactory.createContext(new Class[] { VerifyRequest.class, AnyType.class,
-                VerificationRequestType.class, VerificationResponseType.class }, props);
+        this.context = JAXBContextFactory.createContext(new Class[] { RequestBaseType.class,
+                VerificationResponseType.class }, props
+
+        );
 
     }
 

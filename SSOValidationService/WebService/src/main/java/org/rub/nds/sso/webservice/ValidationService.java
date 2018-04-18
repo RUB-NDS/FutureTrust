@@ -28,9 +28,15 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.JAXBException;
 import oasis.names.tc.dss._1_0.core.schema.VerifyRequest;
+import org.rub.nds.futuretrust.cvs.sso.api.AuthenticationType;
+import org.rub.nds.futuretrust.cvs.sso.api.RequestBaseType;
+import org.rub.nds.futuretrust.cvs.sso.api.RequestBaseType.OptionalInputs;
+import org.rub.nds.futuretrust.cvs.sso.api.SsoProtocolType;
+import org.rub.nds.futuretrust.cvs.sso.api.VerificationRequestType;
 import org.rub.nds.futuretrust.validationservice.sso.library.Controller;
 import org.rub.nds.sso.api.VerificationResponseType;
 import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
+import org.rub.nds.sso.api.SamlType;
 
 /**
  * REST Web Service
@@ -73,7 +79,33 @@ public class ValidationService {
     @Consumes({ MediaType.APPLICATION_JSON })
     @Produces("application/json")
     @Path("verifyrequest")
-    public VerificationResponseType postJson(VerifyRequest content) throws JAXBException, SAMLBuildException {
+    public VerificationResponseType postJson(RequestBaseType content) throws JAXBException, SAMLBuildException {
         return new Controller(content).verify();
+    }
+
+    @GET
+    @Produces("application/json")
+    @Path("genrequest")
+    public RequestBaseType genExampleRequest() throws JAXBException, SAMLBuildException {
+        RequestBaseType request = new RequestBaseType();
+        VerificationRequestType rq = new VerificationRequestType();
+
+        AuthenticationType auth = new AuthenticationType();
+        auth.setClientId("test");
+        auth.setClientSecret("secret");
+        rq.setAuthentication(auth);
+
+        SamlType saml = new SamlType();
+        saml.setSamlRequest("samlRequest");
+        saml.setSamlResponse("samlResponse");
+        saml.setSamlVerificationProfile("profile1");
+
+        rq.setSsoProtocol(SsoProtocolType.SAML);
+        rq.setSaml(saml);
+
+        OptionalInputs input = new OptionalInputs();
+        input.setCvsVerificationRequest(rq);
+        request.setOptionalInputs(input);
+        return request;
     }
 }

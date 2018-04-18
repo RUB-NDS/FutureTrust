@@ -25,6 +25,9 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(org.rub.nds.sso.webservice.JAXBContextResolver.class);
+        // resources.add(org.rub.nds.sso.webservice.JAXBContextResolver.class);
+        resources.add(org.rub.nds.sso.webservice.JacksonConfigurator.class);
+        // resources.add(org.rub.nds.sso.webservice.JacksonConfigurator.class);
         resources.add(org.rub.nds.sso.webservice.ValidationService.class);
     }
 
