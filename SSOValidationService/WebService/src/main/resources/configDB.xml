@@ -10,16 +10,16 @@
             <ns2:samlTokenVerificationChecks>
                 <ns2:verifySchema>true</ns2:verifySchema>
                 <ns2:verifyXSW>true</ns2:verifyXSW>
-                <ns2:verifySAMLAssertionID>true</ns2:verifySAMLAssertionID>
+                <!--<ns2:verifySAMLAssertionID>true</ns2:verifySAMLAssertionID>-->
                 <ns2:verifySAMLAssertionSignatureTrusted>true</ns2:verifySAMLAssertionSignatureTrusted>
-                <ns2:verifySAMLAssertionInResponseTo>true</ns2:verifySAMLAssertionInResponseTo>
+                <!--<ns2:verifySAMLAssertionInResponseTo>true</ns2:verifySAMLAssertionInResponseTo>-->
                 <ns2:verifySAMLAssertionSbjConfirmationTimestamps>true</ns2:verifySAMLAssertionSbjConfirmationTimestamps>
                 <ns2:verifySAMLAssertionSbjConfirmationDestination>true</ns2:verifySAMLAssertionSbjConfirmationDestination>
-                <ns2:verifySAMLAssertionSbjInResponseTo>true</ns2:verifySAMLAssertionSbjInResponseTo>
-                <ns2:verifySAMLAssertionConditionsAudience>true</ns2:verifySAMLAssertionConditionsAudience>
+                <!--<ns2:verifySAMLAssertionSbjInResponseTo>true</ns2:verifySAMLAssertionSbjInResponseTo>-->
+                <!--<ns2:verifySAMLAssertionConditionsAudience>true</ns2:verifySAMLAssertionConditionsAudience>-->
             </ns2:samlTokenVerificationChecks>
             <ns2:samlTokenVerificationParameters>
-                <ns2:destination>https://test.com</ns2:destination>
+                <ns2:destination>http://carbon.cloud.nds.rub.de:8080/sp/saml/index.html</ns2:destination>
                 <ns2:saml_metadata>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
 &lt;md:EntitiesDescriptor Name="Group1" validUntil="2030-06-09T09:00:00" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"&gt;
     &lt;md:EntityDescriptor entityID="eLearning SAML SSO IdP"&gt;
