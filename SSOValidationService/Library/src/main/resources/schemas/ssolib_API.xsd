@@ -375,6 +375,7 @@
 			<xs:element name="verifyExpired" type="xs:boolean" />
 			<xs:element name="vierfyNotBefore" type="xs:boolean" />
 			<xs:element name="verifySubClaims" type="xs:boolean" />
+                        <xs:element name="verifySignature" type="xs:boolean" />
 		</xs:sequence>
 	</xs:complexType>
 

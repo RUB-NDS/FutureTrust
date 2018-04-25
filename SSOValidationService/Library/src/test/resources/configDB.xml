@@ -2,8 +2,8 @@
 <ns3:DataBaseType xmlns="http://www.api.sso.cvs.futuretrust.nds.rub.org" xmlns:ns2="http://www.api.sso.nds.rub.org" xmlns:ns3="org.rub.nds.futuretrust.cvs.sso.api">
     <registeredEntity>
         <authentication>
-            <client_id>18dee496-b49f-4405-b909-f2b71c9feb58</client_id>
-            <client_secret>2ca66907-a966-411f-8bfa-81dbe542b3b7</client_secret>
+            <client_id>b2c2e59d-504c-494b-9574-9947cdeb350a</client_id>
+            <client_secret>82056774-a89b-41d6-8a63-994cca12c155</client_secret>
         </authentication>
         <verificationProfile>
             <ns2:ID>saml</ns2:ID>
@@ -41,8 +41,8 @@
     </registeredEntity>
     <registeredEntity>
         <authentication>
-            <client_id>a427d2b6-3ee2-43b1-8ffe-8d9b44e07fa0</client_id>
-            <client_secret>8e07cd50-7c70-4947-a183-73be4cc7df79</client_secret>
+            <client_id>000a000c-2625-42ec-9fa0-2a113390fe16</client_id>
+            <client_secret>dc3699c4-4e69-4c16-9e5a-001861aa8011</client_secret>
         </authentication>
         <verificationProfile>
             <ns2:ID>oidc</ns2:ID>
@@ -54,6 +54,7 @@
                 <ns2:verifyExpired>true</ns2:verifyExpired>
                 <ns2:vierfyNotBefore>false</ns2:vierfyNotBefore>
                 <ns2:verifySubClaims>false</ns2:verifySubClaims>
+                <ns2:verifySignature>false</ns2:verifySignature>
             </ns2:oidcVerificationChecks>
             <ns2:oidcVerificationParameters>
                 <ns2:audience>http://test2.com</ns2:audience>
