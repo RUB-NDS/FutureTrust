@@ -15,6 +15,14 @@ Information about the existing eID services were collected from whitepapers and 
 
 **See the [FutureTrust Wiki](https://github.com/RUB-NDS/FutureTrust/wiki) for the online documentation.**
 
+# Evaluation of eID and Trust Services
+eID services are based on well-established web technologies. These technologies provide functionalities for secure browsing, login mechanisms, Single Sign-On, or exchanging confidential data over untrusted networks. Unfortunately, these technologies are also common targets of attacks if they are misconfigured or incorrectly implemented. In recent years, it has been shown how to break SAML-based SSO systems and login as an arbitrary user, read arbitrary files from SAML servers, or how to break XML Encryption and decrypt the exchanged SAML assertions. These attacks present serious threats to the eID users and their prevention is, therefore, of high importance.
+
+The goal of this document is to provide an overview of the attacks relevant to eID scenarios and to summarize security guidelines and best practices for the deployment of secure eID infrastructures based on SAML.
+We first give an overview of the technologies used in eID services and present the main security features provided by these technologies. Afterwards, we provide an architecture description of a typical SSO provider, describe generic attacks, and describe the attack scenarios applicable on this architecture. We summarize security evaluations that should be performed when analyzing the security of a deployed SAML-based SSO provider. These attacks range from targeting the underlying TLS protocol and XML parser (XXE attacks), to exploiting incorrect XML Signature validation that can allow an attacker to log in as an arbitrary user. Based on the summarized attacks, we define best security practices to deploy SAML-based eID systems. This provides an overview of the relevant countermeasures and reference security documents written by well-established entities like OWASP (Open Web Application Security Project) or BSI (Bundesamt für Sicherheit in der Informationstechnik).
+
+In order to support eID developers in their secure development process, we also extended the tool Extension for Processing and Recognition of Single SignOn Protocols (EsPReSSO), which helps to analyze different SSO protocols and their used information flow. We implemented a prototype of the summarized SAML-relevant attacks into EsPReSSO so that eID developers are able to check for known vulnerabilities. The tool will provide recommendations for developers to enhance the security of deployed eID systems.
+
 # FutureTrust Partners
 
 <a href="https://www.ruhr-uni-bochum.de" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/rub.png" width="50" alt="FutureTrust"></a>
