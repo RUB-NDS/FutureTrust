@@ -23,6 +23,8 @@ We first give an overview of the technologies used in eID services and present t
 
 In order to support eID developers in their secure development process, we also extended the tool Extension for Processing and Recognition of Single SignOn Protocols (EsPReSSO), which helps to analyze different SSO protocols and their used information flow. We implemented a prototype of the summarized SAML-relevant attacks into EsPReSSO so that eID developers are able to check for known vulnerabilities. The tool will provide recommendations for developers to enhance the security of deployed eID systems.
 
+[Technical Report](docs/D2.3-Evaluation-of-eID-and-trust-services.pdf)
+
 # FutureTrust Partners
 
 <a href="https://www.ruhr-uni-bochum.de" target="_blank"><img src="https://github.com/RUB-NDS/FutureTrust/blob/master/images/rub.png" width="50" alt="FutureTrust"></a>
