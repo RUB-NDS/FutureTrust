@@ -16,7 +16,9 @@ public class AuthenticationVerifier {
         if (request.getAuthentication() == null) {
             throw new AuthenticationException("No authentication information found.");
         }
-        if (request.getAuthentication().getMethod().equalsIgnoreCase("cert")) {
+        if (request.getAuthentication().getMethod() == null) {
+            return verifyClientIDSecret(db, request);
+        } else if (request.getAuthentication().getMethod().equalsIgnoreCase("cert")) {
             return verifyCert(db, request);
         } else if (request.getAuthentication().getMethod().equalsIgnoreCase("pop")) {
             throw new AuthenticationException("Not implemented.");

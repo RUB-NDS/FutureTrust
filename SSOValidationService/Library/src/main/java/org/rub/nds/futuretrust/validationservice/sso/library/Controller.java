@@ -1,15 +1,10 @@
 package org.rub.nds.futuretrust.validationservice.sso.library;
 
-import java.util.LinkedHashMap;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Unmarshaller;
 import org.rub.nds.sso.provider.EidProvider;
-import oasis.names.tc.dss._1_0.core.schema.VerifyRequest;
 import org.rub.nds.futuretrust.cvs.sso.api.EntityType;
 import org.rub.nds.futuretrust.cvs.sso.api.RequestBaseType;
 import org.rub.nds.futuretrust.cvs.sso.api.VerificationRequestType;
-import org.rub.nds.saml.samllib.provider.SamlEidProvider;
-import org.rub.nds.sso.api.SamlType;
+import org.rub.nds.sso.provider.SamlEidProvider;
 import org.rub.nds.sso.api.VerificationLogType;
 
 /**
@@ -39,7 +34,7 @@ public class Controller {
             EntityType entity = AuthenticationVerifier.authenticate(ConfigDatabase.getConfig(), rq);
 
             EidProvider provider = new SamlEidProvider();
-            result = provider.verify(SAMLVerificationAdapter.getVerificationProfile(entity, rq.getSaml()));
+            result = provider.verify(rq.getSaml());
 
             return result;
         } catch (Exception ex) { // TODO: Only exceptions which are throws by
