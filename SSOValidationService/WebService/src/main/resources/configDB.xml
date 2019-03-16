@@ -50,16 +50,38 @@
             <ns2:oidcVerificationChecks>
                 <ns2:verifyIssuer>true</ns2:verifyIssuer>
                 <ns2:verifyAudience>true</ns2:verifyAudience>
-                <ns2:verifyNonce>true</ns2:verifyNonce>
+                <ns2:verifyNonce>false</ns2:verifyNonce>
                 <ns2:verifyIssuedAt>true</ns2:verifyIssuedAt>
                 <ns2:verifyExpired>true</ns2:verifyExpired>
                 <ns2:vierfyNotBefore>false</ns2:vierfyNotBefore>
                 <ns2:verifySubClaims>false</ns2:verifySubClaims>
+                <ns2:verifySignature>true</ns2:verifySignature>
             </ns2:oidcVerificationChecks>
             <ns2:oidcVerificationParameters>
                 <ns2:audience>http://test2.com</ns2:audience>
-                <ns2:oidc_metadata>{"keys":[{"kty":"RSA","e":"AQAB","use":"sig","kid":"rsa-test","alg":"RS256","n":"mTkVHAyJoWD0SN9HYji3z44oQwnhHzHnKd-rrUtm0uJJALrs0Hxp0UehU40vanKKB-Zu54RUcnbZ4wJxyS8AAPACV4BIETO0crCKDfyXXH4r4VSrqfGxxmEohBnFCM2RQE6OU3vdGzr46fCUmmhH9b-GloQpMjPJPPKWinNkWchpDwbvJFFAjardXdi_WLiCGcX6zgXBD8U76gEj-NDEObNy8Q5ilWTO_kH-NVuexpVFqU5ibh3geBe32jZ4kNClKpQZIrqv3nnWQQ3-NpPb_hGzPU2ZkxiKgVPNH8V7gVVMlufGAR7vXOqCpI0oWXVOseUH3D0p4thVMHv_vQtUiQ"}]}</ns2:oidc_metadata>
-                <ns2:client_secret>test123456</ns2:client_secret>
+                <ns2:oidc_metadata>{"request_parameter_supported":true,
+"registration_endpoint":"http://honest-sp.com:443/oidc_idp/register",
+"userinfo_signing_alg_values_supported":["HS256","HS384","HS512","RS256","RS384","RS512"],
+"token_endpoint":"http://honest-sp.com:443/oidc_idp/token",
+"request_uri_parameter_supported":false,
+"token_endpoint_auth_methods_supported":["client_secret_post","client_secret_basic","client_secret_jwt","private_key_jwt","none"],
+"claims_parameter_supported":false,
+"jwks_uri":"http://honest-sp.com:443/oidc_idp/jwk",
+"id_token_signing_alg_values_supported":["HS256","HS384","HS512","RS256","RS384","RS512","none"],
+"authorization_endpoint":"http://honest-sp.com:443/oidc_idp/faces/authorize/index.xhtml",
+"require_request_uri_registration":false,
+"introspection_endpoint":"http://honest-sp.com:443/oidc_idp/introspect",
+"response_types_supported":["code","token"],
+"token_endpoint_auth_signing_alg_values_supported":["HS256","HS384","HS512","RS256","RS384","RS512"],
+"revocation_endpoint":"http://honest-sp.com:443/oidc_idp/revoke",
+"request_object_signing_alg_values_supported":["HS256","HS384","HS512","RS256","RS384","RS512"],
+"claim_types_supported":["normal"],
+"grant_types_supported":["authorization_code","implicit"],
+"scopes_supported":["openid","email","address"],
+"userinfo_endpoint":"http://honest-sp.com:443/oidc_idp/userinfo",
+"issuer":"http://honest-sp.com:443/oidc_idp",
+"claims_supported":["sub","name","preferred_username","given_name","family_name","middle_name","nickname","profile","picture","website","gender","zone_info","locale","updated_time","birthdate","email","email_verified","phone_number","phone_number_verified","address"],"subject_types_supported":["public","pairwise"]}</ns2:oidc_metadata>
+                <ns2:client_secret>test123456789012345678901234567890123456789</ns2:client_secret>
             </ns2:oidcVerificationParameters>
         </verificationProfile>
     </registeredEntity>

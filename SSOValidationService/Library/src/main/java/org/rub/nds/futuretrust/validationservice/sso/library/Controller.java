@@ -3,9 +3,11 @@ package org.rub.nds.futuretrust.validationservice.sso.library;
 import org.rub.nds.sso.provider.EidProvider;
 import org.rub.nds.futuretrust.cvs.sso.api.EntityType;
 import org.rub.nds.futuretrust.cvs.sso.api.RequestBaseType;
+import org.rub.nds.futuretrust.cvs.sso.api.SsoProtocolType;
 import org.rub.nds.futuretrust.cvs.sso.api.VerificationRequestType;
 import org.rub.nds.sso.provider.SamlEidProvider;
 import org.rub.nds.sso.api.VerificationLogType;
+import org.rub.nds.sso.provider.OidcEidProvider;
 
 /**
  *
@@ -33,8 +35,14 @@ public class Controller {
                     .getCvsVerificationRequest();
             EntityType entity = AuthenticationVerifier.authenticate(ConfigDatabase.getConfig(), rq);
 
-            EidProvider provider = new SamlEidProvider();
-            result = provider.verify(rq.getSaml());
+            if (rq.getSsoProtocol().equals(SsoProtocolType.SAML)) {
+                EidProvider provider = new SamlEidProvider();
+                result = provider.verify(rq.getSaml());
+            }
+            if (rq.getSsoProtocol().equals(SsoProtocolType.OIDC)) {
+                EidProvider provider = new OidcEidProvider();
+                result = provider.verify(rq.getOidc());
+            }
 
             return result;
         } catch (Exception ex) { // TODO: Only exceptions which are throws by

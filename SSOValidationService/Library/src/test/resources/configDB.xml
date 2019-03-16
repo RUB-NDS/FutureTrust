@@ -2,8 +2,8 @@
 <ns3:DataBaseType xmlns="http://www.api.sso.cvs.futuretrust.nds.rub.org" xmlns:ns2="http://www.api.sso.nds.rub.org" xmlns:ns3="org.rub.nds.futuretrust.cvs.sso.api">
     <registeredEntity>
         <authentication>
-            <client_id>2824807a-eabc-4a8f-8603-ad29fb9584ed</client_id>
-            <client_secret>5075c6c4-3cce-46dd-8bd4-638f0f4d3a86</client_secret>
+            <client_id>a9f9bd41-bfa8-4fbe-958d-9d933f1a30df</client_id>
+            <client_secret>28bbd605-4489-4a49-91e0-ba76670145c8</client_secret>
         </authentication>
         <verificationProfile>
             <ns2:ID>saml</ns2:ID>
@@ -41,8 +41,8 @@
     </registeredEntity>
     <registeredEntity>
         <authentication>
-            <client_id>4468ce98-0390-4243-9e2e-0be6bf225b48</client_id>
-            <client_secret>79fc6c04-0656-45f2-a883-86cdac31f98d</client_secret>
+            <client_id>35b1adcf-960d-49e6-8df2-09c61a6dccee</client_id>
+            <client_secret>174684a4-ecb7-4d0a-bf5c-917e510dccef</client_secret>
         </authentication>
         <verificationProfile>
             <ns2:ID>oidc</ns2:ID>
