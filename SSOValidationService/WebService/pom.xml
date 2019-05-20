@@ -15,9 +15,9 @@
         
     <properties>
         <!--        <main.basedir>${parent.basedir}</main.basedir>
-                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-                <netbeans.hint.license>lgpl21</netbeans.hint.license>
--->                
+                        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                        <netbeans.hint.license>lgpl21</netbeans.hint.license>
+        -->                
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target><!--
@@ -90,10 +90,23 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <compilerArguments>
+                        <endorseddirs>${endorsed.dir}</endorseddirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>3.2.2</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <warName>sso-vals</warName>
                 </configuration>
             </plugin>
         </plugins>
