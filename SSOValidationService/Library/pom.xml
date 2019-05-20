@@ -27,9 +27,6 @@
                     </execution>
                 </executions>
                 <configuration>
-<!--                    <xjbSources>
-                        <xjbSource>src/main/resources/global.xjb</xjbSource>
-                    </xjbSources>-->
                     <sources>
                         <source>src/main/resources/schemas/</source>
                     </sources>
